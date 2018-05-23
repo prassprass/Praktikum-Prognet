@@ -1,0 +1,192 @@
+@media(max-width: 1199px){
+	.mr-src-panel{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.tours-src{
+		position: relative;
+	}
+}
+
+@media(max-width: 999px){
+	.mr-1{
+		width: 100%;
+		text-align: center;
+	}
+
+	.icon-sosmed{
+		text-align: center;
+	}
+
+	.icon-sosmed ul li:last-child{
+		display:none;
+	}
+
+	.navbar-right{
+		margin: 0;
+	}
+
+	.light-menu .navbar-brand{
+		font-size: 14px;
+	}
+
+	.custom-ct{
+		width: 100%;
+		border: 0;
+		padding-bottom: 30px;
+	}
+}
+
+@media(max-width: 910px){
+	.banner .carousel-caption h2{
+		font-size: 30px;
+	}
+
+	.mb-tp{
+		width: 100%;
+		position: relative;
+	}
+}
+
+@media(max-width: 676px){
+	.banner .carousel-caption{
+		top: 10%;
+	}
+
+	.banner .carousel-caption a{
+		margin-top: 10px;
+	}
+
+	.banner .carousel-caption h2{
+		font-size: 20px;
+	}
+}
+
+@media(max-width: 400px){
+	.banner .carousel-caption{
+		display: none;
+	}
+}
+
+
+@media(max-width: 767px){
+	.light-menu .navbar{
+		overflow: hidden;
+	}
+
+	.affix{
+		padding: 0 15px 0 15px;
+	}
+
+	.light-menu .navbar-brand{
+		font-size: 20px;
+	}
+
+	.rc-mb{
+		width: 100%!important;
+		position: relative;
+		display: block;
+	}
+
+	.button-find{
+		width: 100%;
+		position: relative;
+		margin-left: 0;
+	}
+}
+
+@media(max-width: 1200px){
+	.company-wrapper{
+		position: absolute;
+		top: 650px;
+	}
+}
+
+
+@media(max-width: 1000px){
+	.company-cover{
+		padding:0;
+	}
+
+	.company-wrapper{
+		position: relative;
+		top: 0;
+	}
+
+	.xs2{
+		padding: 0!important;
+	}
+
+	.popular-btn{
+		margin-bottom: 10px;
+	}
+
+	.md6{
+		text-align: center;
+	}
+
+	.popular-rate{
+		padding-bottom: 20px;
+	}
+
+	.rc-mb{
+		width: 50%;
+		display: inline-block;
+	}
+}
+
+@media(max-width: 500px){
+	.xs1{
+		width: 50%;
+		display: inline-block;
+	}
+
+	.xs1 h3{
+		padding: 0;
+	}
+
+	.company-cover{
+		padding: 50px 0;
+	}
+
+	.company-wrapper{
+		display: none!important;
+	}
+}
+
+@media(max-width: 300px){
+	.xs1{
+		width: 100%;
+	}
+
+	.company-cover{
+		padding: 0;
+	}
+}
+
+
+@media(max-width: 400px){
+	.lg{
+		width: 100%;
+		padding: 0;
+	}
+}
+
+
+@media(max-width: 850px){
+	.owls-item{
+		width: 100%;
+		position: relative;
+	}
+
+	.xs3{
+		width: 100%;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+
+	.xs3 p{
+		text-align: center!important;
+	}
+}

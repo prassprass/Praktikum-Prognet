@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">db_progent_tnt</database>
+</source>
+<canvas zoom="80">
+<tables>
+<table name="tbl_admin" view="colnames">
+<left>93</left>
+<top>84</top>
+<width>91</width>
+<height>100</height>
+<sql_create_table>CREATE TABLE `tbl_admin` (
+  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_booking" view="colnames">
+<left>242</left>
+<top>137</top>
+<width>133</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `tbl_booking` (
+  `id_booking` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `banyak_traveler` int(11) DEFAULT NULL,
+  `tgl_booking` date DEFAULT NULL,
+  `id_paket` int(11) DEFAULT NULL,
+  `tgl_traveling` date DEFAULT NULL,
+  `permintaan_spesial` varchar(100) DEFAULT NULL,
+  `biaya_traveling` int(11) DEFAULT NULL,
+  `biaya_tambahan` int(11) DEFAULT NULL,
+  `ket_biaya_tambahan` varchar(100) DEFAULT NULL,
+  `status_pembayaran` tinyint(1) DEFAULT NULL,
+  `status_cancle` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id_booking`),
+  KEY `id_paket` (`id_paket`),
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `tbl_booking_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `tbl_paket` (`id_paket`),
+  CONSTRAINT `tbl_booking_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_det_paket_hotel" view="colnames">
+<left>544</left>
+<top>151</top>
+<width>135</width>
+<height>117</height>
+<sql_create_table>CREATE TABLE `tbl_det_paket_hotel` (
+  `id_det_hotel` int(11) NOT NULL AUTO_INCREMENT,
+  `id_paket` int(11) DEFAULT NULL,
+  `id_hotel` int(11) DEFAULT NULL,
+  `banyak_malam_hotel` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_det_hotel`),
+  KEY `id_paket` (`id_paket`),
+  KEY `id_hotel` (`id_hotel`),
+  CONSTRAINT `tbl_det_paket_hotel_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `tbl_paket` (`id_paket`),
+  CONSTRAINT `tbl_det_paket_hotel_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `tbl_hotel` (`id_hotel`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_det_paket_wisata" view="colnames">
+<left>546</left>
+<top>293</top>
+<width>153</width>
+<height>103</height>
+<sql_create_table>CREATE TABLE `tbl_det_paket_wisata` (
+  `id_det_wisata` int(11) NOT NULL AUTO_INCREMENT,
+  `id_paket` int(11) DEFAULT NULL,
+  `id_wisata` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_det_wisata`),
+  KEY `id_paket` (`id_paket`),
+  KEY `id_wisata` (`id_wisata`),
+  CONSTRAINT `tbl_det_paket_wisata_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `tbl_paket` (`id_paket`),
+  CONSTRAINT `tbl_det_paket_wisata_ibfk_2` FOREIGN KEY (`id_wisata`) REFERENCES `tbl_wisata` (`id_wisata`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_hotel" view="colnames">
+<left>702</left>
+<top>43</top>
+<width>114</width>
+<height>144</height>
+<sql_create_table>CREATE TABLE `tbl_hotel` (
+  `id_hotel` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_hotel` varchar(100) DEFAULT NULL,
+  `alamat_hotel` varchar(255) DEFAULT NULL,
+  `tlpn_hotel` varchar(12) DEFAULT NULL,
+  `biaya_permalam` int(11) DEFAULT NULL,
+  `status_aktif` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_hotel`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_jenis_wisata" view="colnames">
+<left>880</left>
+<top>288</top>
+<width>106</width>
+<height>90</height>
+<sql_create_table>CREATE TABLE `tbl_jenis_wisata` (
+  `id_jenis_wisata` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_wisata` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_jenis_wisata`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_moment" view="colnames">
+<left>79</left>
+<top>204</top>
+<width>121</width>
+<height>144</height>
+<sql_create_table>CREATE TABLE `tbl_moment` (
+  `id_moment` int(11) NOT NULL AUTO_INCREMENT,
+  `judul_moment` varchar(30) DEFAULT NULL,
+  `lokasi_moment` varchar(100) DEFAULT NULL,
+  `tanggal_moment` date DEFAULT NULL,
+  `deskripsi_moment` varchar(200) DEFAULT NULL,
+  `foto_moment` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_moment`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_paket" view="colnames">
+<left>400</left>
+<top>218</top>
+<width>121</width>
+<height>171</height>
+<sql_create_table>CREATE TABLE `tbl_paket` (
+  `id_paket` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_paket` varchar(50) DEFAULT NULL,
+  `banyak_hari` int(11) DEFAULT NULL,
+  `banyak_malam` int(11) DEFAULT NULL,
+  `harga_paket` int(11) DEFAULT NULL,
+  `deskripsi_paket` varchar(255) DEFAULT NULL,
+  `foto_paket` varchar(100) DEFAULT NULL,
+  `status_aktif_paket` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id_paket`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_pembayaran" view="colnames">
+<left>398</left>
+<top>46</top>
+<width>133</width>
+<height>144</height>
+<sql_create_table>CREATE TABLE `tbl_pembayaran` (
+  `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_booking` int(11) DEFAULT NULL,
+  `atas_nama_pengirim` varchar(30) DEFAULT NULL,
+  `bukti_transaksi` varchar(100) DEFAULT NULL,
+  `tgl_upload_bukti` date DEFAULT NULL,
+  `status_valid` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_pembayaran`),
+  KEY `id_booking` (`id_booking`),
+  CONSTRAINT `tbl_pembayaran_ibfk_1` FOREIGN KEY (`id_booking`) REFERENCES `tbl_booking` (`id_booking`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_user" view="colnames">
+<left>119</left>
+<top>385</top>
+<width>98</width>
+<height>158</height>
+<sql_create_table>CREATE TABLE `tbl_user` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `nama_user` varchar(50) DEFAULT NULL,
+  `no_indentitas` char(16) DEFAULT NULL,
+  `tlpn_user` char(12) DEFAULT NULL,
+  `alamat_user` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="tbl_wisata" view="colnames">
+<left>724</left>
+<top>287</top>
+<width>132</width>
+<height>160</height>
+<sql_create_table>CREATE TABLE `tbl_wisata` (
+  `id_wisata` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_tempat_wisata` varchar(100) DEFAULT NULL,
+  `lokasi` varchar(100) DEFAULT NULL,
+  `id_jenis_wisata` int(11) DEFAULT NULL,
+  `frame_peta` text,
+  `harga_tiket` int(11) DEFAULT NULL,
+  `deskripsi_wisata` text,
+  `foto_wisata` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_wisata`),
+  KEY `id_jenis_wisata` (`id_jenis_wisata`),
+  CONSTRAINT `tbl_wisata_ibfk_1` FOREIGN KEY (`id_jenis_wisata`) REFERENCES `tbl_jenis_wisata` (`id_jenis_wisata`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
