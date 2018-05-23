@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 10.1.32-MariaDB : Database - db_progent_tnt
+MySQL - 10.1.32-MariaDB : Database - db_prognet_tnt
 *********************************************************************
 */
 
@@ -14,7 +14,7 @@ MySQL - 10.1.32-MariaDB : Database - db_progent_tnt
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_progent_tnt` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `db_progent_tnt`;
+USE `db_prognet_tnt`;
 
 /*Table structure for table `tbl_admin` */
 
